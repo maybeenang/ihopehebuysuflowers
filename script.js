@@ -17,9 +17,30 @@ const generateHearts = () => {
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.fontSize = Math.random() * 50 + "px";
   heart.style.animationDuration = Math.random() * 2 + 3 + "s";
-  heart.innerText = "💖";
+  const love = [
+    "💖",
+    "💗",
+    "💓",
+    "💕",
+    "💞",
+    "💘",
+    "💝",
+    "❤️",
+    "🧡",
+    "💛",
+    "💚",
+    "💙",
+    "💜",
+  ];
+  heart.innerText = love[Math.floor(Math.random() * love.length)];
 
   document.body.appendChild(heart);
+
+  // delete hearth
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
 };
 
 window.addEventListener("scroll", function (e) {
