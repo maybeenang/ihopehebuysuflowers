@@ -63,3 +63,25 @@ h1 {
         transform: scale(1);
     }
 }
+
+
+.heart {
+    font-size: 25px;
+    color: #a70045;
+    position: fixed;
+    top: -1vh;
+    transform: translateY(-5vh);
+    animation: fall 1s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-5vh);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(105vh);
+        opacity: 0;
+    }
+}
