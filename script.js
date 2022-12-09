@@ -24,11 +24,31 @@ window.addEventListener("scroll", function (e) {
   if (scrollPercentage >= 0.99) {
     path.style.strokeDasharray = "none";
     title.style.opacity = 1;
-    title.innerHTML = "nih bunga buat kamu hehe";
-    mawar.classList.add("scale");
+    title.innerHTML = "bunga buat kamu :)";
+
+    if (scrollPercentage === 1) {
+      mawar.classList.add("scale");
+      document.body.animate(
+        [{ backgroundColor: "#2b2b2b" }, { backgroundColor: "#FFB5D4" }],
+        {
+          duration: 1000,
+          iterations: 1,
+        }
+      ).onfinish = () => {
+        document.body.style.backgroundColor = "#FFB5D4";
+        title.animate([{ color: "#969696" }, { color: "#FF006B" }], {
+          duration: 500,
+          iterations: 1,
+        }).onfinish = () => {
+          title.style.color = "#FF006B";
+        };
+      };
+    } else {
+      mawar.classList.remove("scale");
+    }
   } else {
     path.style.strokeDasharray = length + " " + length;
     title.style.opacity = 1 - drawLength / length;
-    title.innerHTML = "scroll trusss";
+    title.innerHTML = "scroll kebawah truss";
   }
 });
