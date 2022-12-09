@@ -54,20 +54,48 @@ window.addEventListener("scroll", function (e) {
 
   path.style.strokeDashoffset = length - drawLength;
   path.style.fillOpacity = drawLength / length;
-  path.style.fill = "#FF006B";
 
   if (scrollPercentage >= 0.8) {
     path.style.strokeDasharray = "none";
   } else {
     path.style.strokeDasharray = length + " " + length;
     title.style.opacity = 1 - drawLength / length;
-    title.innerHTML = "scroll kebawah truss";
+    title.innerHTML = "keep scrolling";
   }
 
   if (scrollPercentage >= 0.8 && counter == 0) {
-    title.innerHTML = "bunga buat kamu :)";
+    title.innerHTML = "for you :)";
     counter = 1;
     mawar.classList.add("scale");
+    path.animate(
+      [
+        {
+          stroke: "#494949",
+          fill: "#5e5e5e",
+        },
+        {
+          stroke: "#a01850",
+          fill: "#FF006B",
+        },
+      ],
+      { duration: 1000, iterations: 1 }
+    ).onfinish = () => {
+      path.style.stroke = "#a01850";
+      path.style.fill = "#FF006B";
+    };
+    title.animate(
+      [
+        { opacity: 0, color: "#969696" },
+        { opacity: 1, color: "#FF006B" },
+      ],
+      {
+        duration: 1000,
+        iterations: 1,
+      }
+    ).onfinish = () => {
+      title.style.color = "#FF006B";
+      title.style.opacity = 1;
+    };
     document.body.animate(
       [{ backgroundColor: "#2b2b2b" }, { backgroundColor: "#FFB5D4" }],
       {
@@ -76,13 +104,6 @@ window.addEventListener("scroll", function (e) {
       }
     ).onfinish = () => {
       document.body.style.backgroundColor = "#FFB5D4";
-      title.style.color = "#FF006B";
-      title.animate([{ opacity: 0 }, { opacity: 1 }], {
-        duration: 500,
-        iterations: 1,
-      }).onfinish = () => {
-        title.style.opacity = 1;
-      };
     };
   }
 });

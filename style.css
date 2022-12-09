@@ -13,7 +13,7 @@
 body {
     background-color: #2b2b2b;
     font-family: bla;
-    height: 5000px;
+    height: 10000px;
 }
 
 h1 {
@@ -40,7 +40,9 @@ h1 {
     width: 200px;
     height: 200px;
     position: fixed;
-    stroke: #a70045;
+    stroke: #494949;
+    fill: #5e5e5e;
+    fill-opacity: 0;
     stroke-width: 3;
     transform-origin: center;
 }
